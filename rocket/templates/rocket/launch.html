@@ -9,8 +9,9 @@
     </div>
 
     <div class="form-container">
+        {% csrf_token %}
         <h1>Welcome to the Moon</h1>
-        <form action="/submit" method="POST">
+        <form action="/moon/add/cadet" method="POST">
             <label for="name">Name:</label>
             <input type="text" id="name" name="name" required>
 

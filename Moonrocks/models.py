@@ -4,7 +4,7 @@ import datetime
 
 class Cadets(models.Model):
     id = models.AutoField(primary_key=True)
-    Names = models.CharField(max_length=50)
+    Names = models.CharField(max_length=50,blank=False)
 
     class gender(models.TextChoices):
         Male = 'Male'
