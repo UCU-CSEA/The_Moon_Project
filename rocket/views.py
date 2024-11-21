@@ -6,4 +6,6 @@ def launch(request):
     return render(request, 'rocket/launch.html')
 
 #add to database from form 
+#def addCadet(request, id):
+
 
