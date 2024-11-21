@@ -132,6 +132,13 @@ input, textarea, .selectR {
     text-shadow: 1px 1px 1px #a01b1b;
 }
 
+.rocks {
+    background-color: #a01b1b;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+}
+
 @media (max-width: 500px) {
     .image-container {
         display: none;
