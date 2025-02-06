@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load static %}
+<div class="container vt323-regular">
+    <div class="image-container">
+       <!-- <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e1/FullMoon2010.jpg/600px-FullMoon2010.jpg" alt="Moon Image">-->
+        <img src="https://upload.wikimedia.org/wikipedia/commons/1/1a/Moon_rotating_full_220px.gif?20160322235610" alt="Moon Image">
+
+    </div>
+
+    <div class="form-container">
+        {% csrf_token %}
+        <h1>Welcome to the Moon</h1>
+        <form action="/moon/add/cadet" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for = "Gender">Gender:</label>
+            <select id="gender" name="gender" class="selectR" required>
+                <option>Male</option>
+                <option>Female</option>
+            </select>
+
+            <label for="organization">Organisation:</label>
+            <input type="text" id="organization" name="organization" required placeholder="School, Business, NGO, etc..">
+
+            <label for="occupation">Occupation:</label>
+            <input type="text" id="occupation" name="occupation" required placeholder="Student, Doctor, Engineer, etc..">
+
+            <label for="quote">Quote:</label>
+            <textarea id="quote" name="quote" rows="4" required></textarea>
+
+            <h2><input type="submit" class="btn-push red vt323-regular" value="Take Off"></h2>
+        </form>
+    </div>
+</div>
+{% endblock content %}
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block content %}
+{% load static %}
+
+{{ template_data.title }}
+
+{% for c in template_data.cadet %}
+   <div style="
+    background-color: #a01b1b;
+    width: 300px;
+    padding: 10px;
+    border-radius: 20px;
+    margin:20px;
+   "> <h1>{{ c.Names }}</h1></div>
+{% endfor %}
+
+{% endblock %}
