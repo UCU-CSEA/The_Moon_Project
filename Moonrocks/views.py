@@ -21,4 +21,3 @@ def addCadet(request):
           cadets.Quote = request.POST['quote']
           cadets.save()
           return redirect('Moonrocks.rocks')
-

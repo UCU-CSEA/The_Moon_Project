@@ -21,4 +21,5 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('', include('rocket.urls')),
     path('moon/', include('Moonrocks.urls')),
+    path('cards/', include('cards.urls')),
 ]
