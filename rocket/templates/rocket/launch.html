@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hack UCU 2025</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700&family=VT323&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        :root {
+            --primary-color: rgb(170, 49, 86);
+            --secondary-color: rgb(47, 93, 160);
+            --text-color: rgb(255, 255, 255);
+        }
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #0d1117;
+            background-image: radial-gradient(circle, #2a3c30 1px, transparent 1px);
+            background-size: 20px 20px;
+            color: var(--text-color);
+        }
+
+        .vt323-regular {
+            font-family: 'VT323', monospace;
+        }
+
+        .typing-hero {
+            font-size: clamp(2rem, 10vw, 6rem);
+            color: var(--primary-color);
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px var(--primary-color), 0 0 20px var(--primary-color), 0 0 30px var(--primary-color);
+            white-space: nowrap;
+            overflow: hidden;
+            display: inline-block;
+        }
+
+        .blinking-cursor {
+            color: var(--primary-color);
+            animation: blink-caret 1s step-end infinite;
+        }
+
+        @keyframes blink-caret {
+            from, to { border-color: transparent }
+            50% { border-color: var(--primary-color); }
+        }
+
+        .card {
+            background: rgba(22, 27, 34, 0.8);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            animation: fadeIn 1.5s ease-out forwards;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .glow-button {
+            transition: all 0.3s ease;
+            box-shadow: 0 0 5px var(--secondary-color);
+        }
+        .glow-button:hover {
+            box-shadow: 0 0 10px var(--secondary-color), 0 0 20px var(--secondary-color);
+        }
+
+        .form-input {
+            background-color: #161b22;
+            border-color: #30363d;
+            color: var(--text-color);
+        }
+
+        .form-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 10px var(--primary-color);
+        }
+
+        .submit-button {
+            background-color: var(--secondary-color);
+            transition: background-color 0.3s ease;
+        }
+        .submit-button:hover {
+            background-color: rgb(37, 74, 127);
+        }
+    </style>
+</head>
+<body class="min-h-screen flex flex-col items-center justify-center p-4">
+
+    <div class="card container max-w-2xl mx-auto flex flex-col items-center justify-center p-8 rounded-lg space-y-8">
+
+        <div class="h-32 flex items-center justify-center">
+            <h1 class="typing-hero vt323-regular" id="hero-text"></h1>
+        </div>
+
+        <div class="form-container w-full p-6 md:p-8 rounded-lg">
+            {% csrf_token %} 
+            <h1 class="text-3xl font-bold mb-4 text-center">Welcome to the Hack</h1>
+            <form action="/moon/add/cadet" method="POST" class="space-y-4">
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-300">Name:</label>
+                    <input type="text" id="name" name="name" required class="form-input mt-1 block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 sm:text-sm">
+                </div>
+                
+                <div>
+                    <label for="email" class="block text-sm font-medium text-gray-300">Email:</label>
+                    <input type="email" id="email" name="email" required placeholder="Enter your email" class="form-input mt-1 block w-full px-3 py-2 border rounded-md shadow-sm placeholder-gray-400 sm:text-sm">
+                </div>
+
+                <div>
+                    <label for="gender" class="block text-sm font-medium text-gray-300">Gender:</label>
+                    <select id="gender" name="gender" required class="form-input mt-1 block w-full px-3 py-2 border rounded-md shadow-sm sm:text-sm">
+                        <option>Male</option>
+                        <option>Female</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label for="team" class="block text-sm font-medium text-gray-300">Team:</label>
+                    <select id="team" name="team" required class="form-input mt-1 block w-full px-3 py-2 border rounded-md shadow-sm sm:text-sm">
+                        <option value="">Select a team</option>
+                        <option>Organizing team</option>
+                        <option>EduScan Intelligence</option>
+                        <option>Python Pandas</option>
+                        <option>IGNITE</option>
+                        <option>The Zealots</option>
+                        <option>CODEAXIS INC</option>
+                        <option>Link Guardian</option>
+                        <option>Zula</option>
+                        <option>The Debuggers</option>
+                        <option>The Trojans</option>
+                        <option>GlitchWorks</option>
+                        <option>iTech</option>
+                        <option>Abstract</option>
+                        <option>The Innovators</option>
+                        <option>Tech Enthusiasts</option>
+                        <option>Axis</option>
+                        <option>Pulse Tech Synergy</option>
+                        <option>Purpose</option>
+                    </select>
+                </div>
+
+                <div class="text-center">
+                    <button type="submit" class="w-full sm:w-auto px-6 py-3 submit-button text-white rounded-lg font-bold glow-button">Take Off</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <script>
+        const textElement = document.getElementById('hero-text');
+        const textToType = "Hack UCU 2025";
+        let i = 0;
+        const typingSpeed = 100; // milliseconds
+
+        function typeWriter() {
+            if (i < textToType.length) {
+                textElement.innerHTML += textToType.charAt(i);
+                i++;
+                setTimeout(typeWriter, typingSpeed);
+            } else {
+                setTimeout(resetTypeWriter, 2000); // Wait 2 seconds, then reset
+            }
+        }
+
+        function resetTypeWriter() {
+            i = 0;
+            textElement.innerHTML = "";
+            setTimeout(typeWriter, 500); // Wait half a second, then restart
+        }
+        
+        // Add a blinking cursor effect
+        const cursor = document.createElement('span');
+        cursor.className = 'blinking-cursor';
+        cursor.textContent = '_';
+        textElement.parentNode.insertBefore(cursor, textElement.nextSibling);
+
+        // Start the typing animation
+        window.onload = function() {
+            typeWriter();
+        };
+
+    </script>
+</body>
+</html>
