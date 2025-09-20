@@ -1,23 +1,23 @@
 from django.db import models
 import datetime
 
-
 class Cadets(models.Model):
     id = models.AutoField(primary_key=True)
-    Names = models.CharField(max_length=50,blank=False)
-
+    Names = models.CharField(max_length=50, blank=False)
+    
     class gender(models.TextChoices):
         Male = 'Male'
         Female = 'Female'
 
-    Gender = models.CharField(max_length=6,choices=gender.choices)
+    Gender = models.CharField(max_length=6, choices=gender.choices)
     Organization = models.CharField(max_length=50)
     Occupation = models.CharField(max_length=50)
+    Email = models.EmailField(blank=False, unique=True, null=True) # Added email field
     Quote = models.CharField(max_length=150)
     DateT = models.DateTimeField(default=datetime.datetime.now())
     Event = models.CharField(max_length=250, default='National ICT Innovation Hub, Nakawa')
     Location = models.CharField(max_length=250, default='8JH7+PQ Kampala')
-    #image = models.ImageField(upload_to='{% static /img %}')
+    image = models.ImageField(upload_to='{% static /img %}',null=True)
 
     def __str__(self):
         return str(self.id) + '_' + self.Names

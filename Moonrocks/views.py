@@ -15,9 +15,8 @@ def addCadet(request):
      if request.method == 'POST' and request.POST['gender'] !='':
           cadets = Cadets()
           cadets.Names = request.POST['name']
-          cadets.Gender = request.POST['gender']
-          cadets.Organization = request.POST['organization']
-          cadets.Occupation = request.POST['occupation']
-          cadets.Quote = request.POST['quote']
+          cadets.Email = request.POST['email']
+          cadets.Gender = request.POST['gender']   
+          cadets.Organization = request.POST['team']
           cadets.save()
           return redirect('Moonrocks.rocks')
